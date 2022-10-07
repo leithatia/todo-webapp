@@ -1,6 +1,9 @@
 <ul>
   <% @lists.each do |list| %>
-    <li><%= link_to list.name, tasks_path(id: list.id) %> - <%= link_to 'Change name', edit_list_path(list)  %></li>
+    <li>
+      <%= link_to list.name, tasks_path(id: list.id) %> -
+      <%= link_to icon('fa-solid', 'pen'), edit_list_path(list)  %>
+    </li>
   <% end %>
 </ul>
 
