@@ -11,10 +11,13 @@ Task.destroy_all
 List.destroy_all
 User.destroy_all
 
-p 'Creating user...'
+p 'Creating users...'
 leith = User.create!(email: 'leith.atia@gmail.com',
                      password: 'password',
                      username: 'Leith')
+jim = User.create!(email: 'jim@gmail.com',
+                     password: 'password',
+                     username: 'Jim')
 
 p 'Creating tasks...'
 personal = leith.lists.create!(name: 'Personal')
@@ -28,4 +31,4 @@ personal.tasks.create!(name: 'Change bulbs', description: 'Change remaining bulb
 
 work.tasks.create!(name: 'Todo app', description: 'Finish this Todo app!')
 work.tasks.create!(name: 'Study JS', description: 'Finish the JS course')
-work.tasks.create!(name: 'Codewars', description: 'Strength Ruby skills with kata on Codewars.com')
+work.tasks.create!(name: 'Codewars', description: 'Strengthen Ruby skills with kata on Codewars.com')
