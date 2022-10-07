@@ -8,7 +8,7 @@
 
 p 'Wiping DB....'
 User.destroy_all
-Category.destroy_all
+List.destroy_all
 Task.destroy_all
 
 p 'Creating user...'
@@ -17,4 +17,6 @@ leith = User.create!(email: 'leith.atia@gmail.com',
                      username: 'Leith')
 
 p 'Creating tasks...'
-general
+personal = leith.lists.create!(name: 'Personal')
+
+personal.tasks.create!(name: 'Take vitamin', description: 'Take one vitamin in the morning with food')
