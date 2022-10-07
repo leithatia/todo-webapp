@@ -1,0 +1,5 @@
+<h2><%= @task.name %></h2>
+
+<p><%= @task.description %></p>
+
+<%= link_to "Back", tasks_path(id: @task.list_id)  %>
