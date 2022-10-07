@@ -5,6 +5,19 @@ class ListsController < ApplicationController
     @lists = current_user.lists
   end
 
-  def show
+  def new
+    @list = List.new
+  end
+
+  def create
+    @list = current_user.lists.new(list_params)
+    @list.save
+    redirect_to lists_path
+  end
+
+  private
+
+  def list_params
+    params.require(:list).permit(:name)
   end
 end
