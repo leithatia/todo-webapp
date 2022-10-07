@@ -6,14 +6,15 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# Destroy all objects
-p 'Destroying objects from DB'
+p 'Wiping DB....'
 User.destroy_all
 Category.destroy_all
 Task.destroy_all
 
-# Create user
-p 'Creating user'
-User.create!(email: 'leith.atia@gmail.com',
-             password: 'password',
-             username: 'Leith')
+p 'Creating user...'
+leith = User.create!(email: 'leith.atia@gmail.com',
+                     password: 'password',
+                     username: 'Leith')
+
+p 'Creating tasks...'
+general
