@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "lists#index"
-  resources :lists, only: %w[index new create]
+  root "pages#home"
+  resources :lists, only: %w[index show new create edit update]
   resources :tasks, only: %w[index show]
 end
