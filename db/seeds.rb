@@ -7,9 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 p 'Wiping DB....'
-User.destroy_all
-List.destroy_all
 Task.destroy_all
+List.destroy_all
+User.destroy_all
 
 p 'Creating user...'
 leith = User.create!(email: 'leith.atia@gmail.com',
@@ -18,5 +18,14 @@ leith = User.create!(email: 'leith.atia@gmail.com',
 
 p 'Creating tasks...'
 personal = leith.lists.create!(name: 'Personal')
+work = leith.lists.create!(name: 'Work')
 
 personal.tasks.create!(name: 'Take vitamin', description: 'Take one vitamin in the morning with food')
+personal.tasks.create!(name: 'Stretch', description: '10 mins of yoga to stretch')
+personal.tasks.create!(name: 'Laundry', description: 'Fold and put away laundry')
+personal.tasks.create!(name: 'Repot plant', description: 'Get soil from basement and repot Ivy')
+personal.tasks.create!(name: 'Change bulbs', description: 'Change remaining bulbs in hallway')
+
+work.tasks.create!(name: 'Todo app', description: 'Finish this Todo app!')
+work.tasks.create!(name: 'Study JS', description: 'Finish the JS course')
+work.tasks.create!(name: 'Codewars', description: 'Strength Ruby skills with kata on Codewars.com')
