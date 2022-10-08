@@ -6,6 +6,10 @@ class ListsController < ApplicationController
     @lists = current_user.lists
   end
 
+  def show
+
+  end
+
   def new
     @list = List.new
   end
