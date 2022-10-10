@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-p 'Wiping DB....'
+puts 'Wiping DB....'
 Task.destroy_all
 List.destroy_all
 User.destroy_all
 
-p 'Creating users...'
+puts 'Creating users...'
 leith = User.create!(email: 'leith.atia@gmail.com',
                      password: 'password',
                      username: 'Leith')
@@ -19,7 +19,7 @@ jim = User.create!(email: 'jim@gmail.com',
                      password: 'password',
                      username: 'Jim')
 
-p 'Creating tasks...'
+puts 'Creating tasks...'
 personal = leith.lists.create!(name: 'Personal')
 work = leith.lists.create!(name: 'Work')
 
@@ -32,3 +32,5 @@ personal.tasks.create!(name: 'Change bulbs', description: 'Change remaining bulb
 work.tasks.create!(name: 'Todo app', description: 'Finish this Todo app!')
 work.tasks.create!(name: 'Study JS', description: 'Finish the JS course')
 work.tasks.create!(name: 'Codewars', description: 'Strengthen Ruby skills with kata on Codewars.com')
+
+puts 'Done!'

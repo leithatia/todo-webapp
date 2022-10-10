@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :lists do
     resources :tasks, only: %w[index new create]
   end
-  resources :tasks, only: :show
+  resources :tasks, only: %w[show edit update destroy]
 end
