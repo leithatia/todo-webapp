@@ -2,4 +2,7 @@
 
 <p><%= @task.description %></p>
 
-<%= link_to "Back", list_path(id: @task.list_id), class:"btn btn-primary"  %>
+<%= link_to "Back", list_path(id: @task.list_id), class:"btn btn-secondary"  %>
+<%= link_to "Edit", edit_task_path(@task), class:"btn btn-primary"  %>
+<%= link_to "Delete", task_path(@task), class:"btn btn-danger",
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
