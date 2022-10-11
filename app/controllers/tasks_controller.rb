@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  attr_accessor :completed
+
   def index
     list = List.find(params[:id])
     @tasks = list.tasks
@@ -40,9 +42,14 @@ class TasksController < ApplicationController
     redirect_to list_path(@task.list), status: :see_other
   end
 
+  def toggle_completed
+    @task = Task.find(params[:id])
+    @task.update(completed: !@task.completed?)
+  end
+
   private
 
   def task_params
-    params.require(:task).permit(:name, :description)
+    params.require(:task).permit(:name, :description, :completed)
   end
 end

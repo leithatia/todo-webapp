@@ -1,12 +1,21 @@
-<ul>
-  <% @list.tasks.each do |task| %>
-    <li>
-      <%= link_to task.name, task_path(task) %>
-      <%= link_to icon('fa-solid', 'pen'), edit_task_path(task) %>
-      <%= link_to icon('fa-solid', 'trash'), task_path(task),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-    </li>
-  <% end %>
-</ul>
+<div data-controller="tasks">
+  <ul>
+    <% @list.tasks.each do |task| %>
+      <li>
+
+        <% if task.completed? %>
+          <%= link_to icon('fa-regular', 'square-check') %>
+        <% else %>
+          <%= link_to icon('fa-regular', 'square') %>
+        <% end %>
+
+        <%= link_to task.name, task_path(task) %>
+        <%= link_to icon('fa-solid', 'pen'), edit_task_path(task) %>
+        <%= link_to icon('fa-solid', 'trash'), task_path(task),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
 <%= link_to 'New task', new_list_task_path(@list), class:'btn btn-primary' %>
