@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :tasks, only: %w[index new create]
   end
   resources :tasks, only: %w[show edit update destroy]
+
 end
